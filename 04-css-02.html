@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 核心概念</title>
+    <style>
+      body {
+        background-color: #d4c7c7;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS 核心概念</h1>
+    <section>
+      <h2>背景</h2>
+      <div>
+        <p>
+          改革是贯穿40年新闻事业发展的主线。在业务和体制层面的改革上,都有所突破。
+        </p>
+      </div>
+    </section>
+    <section>
+      <h2>盒模型</h2>
+      <div class="box">
+        盒模型是 CSS 布局的基石，它定义了元素在页面上的位置和大小。在 CSS 中，每个
+        元素都被看作是一个矩形的盒子，这个盒子由内容、内边距、边框和外边距组成。
+      </div>
+      <style>
+        .box {
+          width: 250px;
+          height: 250px;
+          border: dashed rgb(0, 0, 0) 1.5px;
+          padding: 18px;
+          margin-bottom: 12px;
+          border-radius: 18px;
+        }
+      </style>
+      <div>
+        <div class="box">box 中的内容 1</div>
+        <div class="box">box 中的内容 2</div>
+      </div>
+    </section>
+    <section>
+      <h2>信息流、display以及position</h2>
+    <ul>
+      <li>列表项目</li>
+      <li>列表项目</li>
+      <li>列表项目</li>
+    </ul>
+    <ul>
+      <li style="display: inline">列表项目</li>
+      <li style="display: inline">列表项目</li>
+    </ul>
+      <h3>布局</h3>
+      <div>
+        <h4>dispaly 的不同取值</h4>
+        <style>
+          .display-demo p {
+            display: inline;
+          }
+        </style>
+        <div class="display-demo">
+          <p>段1</p>
+          <p>段2</p>
+          <p style="display: none">段3</p>
+        </div>
+        <style>
+          .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+          .flex-container p {
+            border: 1px solid rgb(20, 111, 6);
+            margin-right: 1.5em;
+            padding: 12px;
+          }
+        </style>
+        <div class="flex-container">
+          <p>11111111111111</p>
+          <p>2222222</p>
+          <p>333333333</p>
+          <p>4444444444444444</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h5>动画</h5>
+      动画必须要有起始状态、结束状态、时长
+      <style>
+        .animate-box {
+          width: 120px;
+          height: 120px;
+          background-color: rgb(12, 0, 248);
+          text-align: center;
+          line-height: 115px;
+          margin-top: 1em;
+          border-radius: 0;
+        }
+        .animate-box:hover {
+          border-radius: 120px;
+          color: rgb(242, 255, 0);
+          background-color: rgb(3, 255, 255);
+          transition: all 1s;
+        }
+      </style>
+      <div class="animate-box">盒模型内容</div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let a=5
+        // alert(a)
+        const title="不变的值"
+        //alert(title)
+        let b="5"
+        console.log(a==b)
+        console.log(a===b)
+        console.log(a+b)
+        console.log(a-b)
+        console.log(a+Number(b))
+        let age=24
+        if(age>18){
+            console.log("你已经成年了")
+        }else{
+            console.log("你还未成年")
+        }
+        for(let i=0;i<5;i=i+1){
+            console.log(i)
+        }
+        let sleep=80
+        while 
+        (sleep<100){
+            console.log("你还没睡够")
+            sleep++
+        }
+        let hunger=80
+        while (hunger>50){
+            console.log("继续吃")
+            hunger=hunger-10
+        }
+
+        function sayThanks(){
+            console.log("这是一个表示感谢的函数")
+        }
+        sayThanks()
+        function sayThanks2(message){
+            console.log(message)
+        }
+        sayThanks2("这是带参数的表示感谢的函数")
+        function sayThanks3(message){
+            console.log(message)
+            return message+"，这是返回值"
+        }
+        sayThanks3("谢谢")
+        result=sayThanks3("谢谢")
+        console.log(result)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

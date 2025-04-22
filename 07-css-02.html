@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 异步编程练习</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e6f7ff;
+        }
+        #demo {
+            max-height: 500px;
+            overflow-y: auto;
+            margin: 20px;
+        }
+            .time-container {
+                margin: 30px auto;
+                max-width: 600px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .source {
+                margin-top: 10px;
+                color: #666;
+                font-size: 14px;
+                width: 100%;
+            }
+    </style>
+</head>
+<body>    
+    <div id="demo">
+    </div>
+    <script>
+        async function getSomething(){
+          await new Promise(resolve => setTimeout(function(){
+              console.log('333333')
+              resolve();
+          },2000))
+        }
+        console.log('22222222')
+        getSomething()
+        console.log('1111111111') 
+      </script>
+     <script>
+        async function getAllPushDates(owner, repo) {
+            const url = `https://api.github.com/repos/${owner}/${repo}/commits`;
+            try {
+                const response = await fetch(url);
+                if(!response.ok) {
+                    throw new Error('网络响应失败');
+                }
+                const commits = await response.json();
+                // 提取提交信息和时间
+                const commitData = commits.map(commit => ({
+                    date: commit.commit.committer.date,
+                    message: commit.commit.message,
+                    author: commit.commit.author.name
+                }));
+                return commitData;
+            } catch(error) {
+                console.error('获取推送日期失败：', error);
+                return null;
+            }
+        }
+            getAllPushDates("fly-eng", "wwwjjj").then(data => {
+                if(data) {
+                    console.log('所有推送信息：', data);
+                    
+                    const sortedData = [...data].sort((a, b) => {
+                        return new Date(a.date) - new Date(b.date);
+                    });
+        
+                    let tableHTML = `
+                        <h2 style="text-align: center; margin-bottom: 20px; color: #333;">
+                            github仓库提交作业清单
+                        </h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>提交时间</th>
+                                    <th>提交者</th>
+                                    <th>提交信息</th>
+                                    <th style="text-align: center;">是否为第一周作业</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    `;
+                    
+                    sortedData.forEach((item, index) => {
+                        const isFirstWeek = item.message.includes("第一周作业");
+                        tableHTML += `
+                            <tr>
+                                <td>${index + 1}</td>
+                                <td>${new Date(item.date).toLocaleString()}</td>
+                                <td>${item.author}</td>
+                                <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item.message}</td>
+                                <td style="text-align: center;">${isFirstWeek ? '✔' : '×'}</td>
+                            </tr>
+                        `;
+                    });
+                    
+                    tableHTML += `
+                            </tbody>
+                        </table>
+                    `;
+                    
+                    document.getElementById('demo').innerHTML = tableHTML;
+                    
+                    // 修改WakaTime统计部分
+                    const wakatimeHTML = `
+                        <div class="time-container">
+                            <h2 style="margin-bottom: 15px;">我的编程代码学习时间</h2>
+                            <a href="https://wakatime.com/@56a8c23e-a132-4977-bab4-d577f6ddaa86"><img src="https://wakatime.com/badge/user/56a8c23e-a132-4977-bab4-d577f6ddaa86.svg" alt="Total time coded since Mar 27 2025" /></a>
+                            <p class="source" style="text-align: center;">——数据来源WakaTime</p>
+                        </div>
+                    `;
+                    
+                    document.getElementById('demo').insertAdjacentHTML('beforeend', wakatimeHTML);
+                    
+                } else {
+                    console.log('无法获取推送信息');
+                    document.getElementById('demo').innerHTML = `
+                        <h2 style="text-align: center; margin-bottom: 20px; color: #333;">
+                            github仓库提交作业清单
+                        </h2>
+                        <p style="color: red; padding: 20px;">无法获取推送信息</p>
+                    `;
+                }
+            });
+        </script>
+            </script>
+        </script>
+    </script>
+</html>

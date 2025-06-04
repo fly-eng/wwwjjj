@@ -1,0 +1,13 @@
+# 检查网络连通性（Windows）
+ping welcome.developers.workers.dev -n 5
+
+# 强制更新 Wrangler 版本
+npm install -g wrangler@latest
+
+# 重新认证 Cloudflare 账户
+wrangler logout
+wrangler login
+
+# 清理缓存并重新部署
+cd my-wakatime-worker
+wrangler deploy

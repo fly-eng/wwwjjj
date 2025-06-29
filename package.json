@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "wrangler": "^4.17.0"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "marked": "^15.0.12"
   }
 }

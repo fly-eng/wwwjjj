@@ -1,0 +1,12 @@
+import requests
+from bs4 import BeautifulSoup
+print("Hello World")
+url="https://www.xbmu.edu.cn/"
+#print(url)
+r=requests.get(url)
+r.encoding="utf-8"
+#print(r.text)
+x=r.text 
+soup=BeautifulSoup(x,"html.parser")
+print (soup.find_all("li",class_="sub-item li-1"[0].find_all("a").text()))
+print("程序执行完毕")

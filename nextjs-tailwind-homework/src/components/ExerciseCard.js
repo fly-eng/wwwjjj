@@ -18,7 +18,7 @@ export default function ExerciseCard({
     <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
       <img
         className="w-full h-48 object-cover"
-        src={imageUrl}
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}${imageUrl}`}
         alt={title || "Exercise Image"}
       />
       <div className="p-6">
@@ -41,21 +41,14 @@ export default function ExerciseCard({
           </div>
         )}
         <div className="flex items-center justify-between mt-4">
-          {/* 查看练习按钮 */}
-          {link ? (
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-rose-600 text-white px-6 py-2 rounded-md font-medium
-                         transform transition-transform duration-200 hover:scale-105 hover:bg-rose-700
-                         focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-opacity-50"
-            >
-              查看练习
-            </a>
-          ) : (
-            <p className="text-sm text-gray-400">暂无在线链接</p>
-          )}
+          <a
+            href={link || `/practice/${encodeURIComponent(title)}`}
+            className="inline-block bg-rose-600 text-white px-6 py-2 rounded-md font-medium
+                     transform transition-transform duration-200 hover:scale-105 hover:bg-rose-700
+                     focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-opacity-50"
+          >
+            查看练习
+          </a>
           {/* 3. & 5. 添加收藏按钮并根据 State 更新 UI */}
           <button
             onClick={handleToggleFavorite}

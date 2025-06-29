@@ -1,71 +1,51 @@
-// src/components/Footer.js
-"use client"; // 声明为客户端组件，因为使用了 useState 和 useEffect
-
-import React, { useEffect, useState } from "react";
+"use client"; 
+import { useEffect, useState } from 'react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-  const [wakatimeText, setWakatimeText] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [codingTime, setCodingTime] = useState('');
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchWakatimeStats = async () => {
-      setIsLoading(true);
-      setError(null);
+    const fetchCodingTime = async () => {
       try {
-        // 请将 'YOUR_WORKER_URL' 替换为您实际部署的 Cloudflare Worker URL
-        const workerUrl = "https://442b5316-tiny-firefly-14ed.3415707143.workers.dev/";
-        const response = await fetch(workerUrl);
+        const apiKey = process.env.WAKATIME_API_KEY;
+        const username = process.env.NEXT_PUBLIC_WAKATIME_USERNAME || 'current';
+        const response = await fetch('/api/wakatime');
 
         if (!response.ok) {
-          const errorData = await response
-            .json()
-            .catch(() => ({ message: "Failed to parse error response" }));
-          throw new Error(
-            errorData.message ||
-              `Error fetching Wakatime stats: ${response.status}`
-          );
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'Failed to fetch coding time');
         }
 
-        const result = await response.json();
+        const data = await response.json();
+        const totalSeconds = data.data.total_seconds;
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
 
-        // 根据您提供的 JSON 结构，我们期望数据在 result.data.text
-        if (result && result.data && result.data.text) {
-          setWakatimeText(result.data.text);
-        } else {
-          // 如果数据结构不符合预期，或者 text 字段不存在
-          console.warn(
-            'Wakatime data received, but "text" field is missing or in unexpected structure:',
-            result
-          );
-          setWakatimeText("Data format error");
-        }
+        setCodingTime(`${hours}h ${minutes}m`);
       } catch (err) {
-        console.error("Failed to fetch or process Wakatime stats:", err);
-        setError(err.message);
-        setWakatimeText("Could not load stats");
-      } finally {
-        setIsLoading(false);
+        setError('无法获取编码时长数据');
+        console.error('WakaTime API error:', err);
       }
     };
 
-    fetchWakatimeStats();
-  }, []); // 空依赖数组确保只在组件挂载时运行一次
+    fetchCodingTime();
+  }, []);
 
   return (
-    <footer className="bg-slate-800 text-slate-300 py-8 mt-12">
-      <div className="container mx-auto px-4 text-center">
-        <p className="text-sm">
-          &copy; {currentYear} 《Web前端开发》课程练习平台. 保留所有权利.
-        </p>
-        <p className="text-xs mt-2">使用 Next.js 和 Tailwind CSS 构建</p>
-        <p className="text-xs mt-2">
-          Wakatime :{" "}
-          {isLoading ? "Loading..." : error ? `Error: ${error}` : wakatimeText}
-        </p>
-
+    <div className="bg-gray-900 text-white py-4">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col items-center space-y-2">
+          {/* 新增课程标题和技术栈 */}
+          <h1 className="text-xl font-bold text-slate-100">《Web前端开发》课程练习平台</h1>
+          <h2 className="text-sm text-gray-400">使用 Next.js 和 Tailwind CSS 构建</h2>
+          
+          {/* 原有wakatime显示 */}
+          <p className="text-sm text-gray-400">
+            wakatime总时长: {error || codingTime || '加载中...'}
+          </p>
+        </div>
       </div>
-    </footer>
+    </div>
   );
 }

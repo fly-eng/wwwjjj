@@ -28,8 +28,9 @@ export async function GET() {
         { error: 'Failed to fetch WakaTime data', details: errorData },
         { status: response.status }
       );
-    }
+    } // 此处缺少闭合的大括号或存在语法错误
 
+    // 确保所有代码块正确闭合
     const data = await response.json();
     return NextResponse.json(data);
   } catch (error) {

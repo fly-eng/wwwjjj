@@ -3,7 +3,7 @@ import Link from 'next/link';
 async function getCommits() {
   const owner = 'fly-eng';  // 修改这里
   const repo = 'wwwjjj';      // 修改这里
-  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=10`, {
+  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=100`, {
     // next: { revalidate: 3600 }
   });
   if (!res.ok) {
@@ -37,8 +37,19 @@ export default async function GitHubStatsPage() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">GitHub: fly-eng/wwwjjj 提交记录</h1>
-      <p className="mb-4">最近 {commits.length} 条提交：</p>
+      <header className="mb-6 space-y-3">
+        <div className="space-y-2">
+          <h1 className="text-2xl font-semibold text-gray-900 tracking-tight">
+            GitHub: fly-eng/wwwjjj 提交记录
+          </h1>
+          <p className="text-lg text-gray-600 leading-tight">
+            共 {commits.length} 条提交记录
+          </p>
+        </div>
+        <p className="text-sm text-gray-500 font-medium">
+          最后更新：{new Date().toLocaleString()}
+        </p>
+      </header>
       {commits.length > 0 ? (
         <ul className="space-y-4">
           {commits.map((commit) => (
@@ -66,4 +77,3 @@ export default async function GitHubStatsPage() {
     </div>
   );
 }
-route.js

@@ -4,7 +4,7 @@
     "title": "HTML 基础结构练习",
     "description": "学习并实践HTML5的基本文档结构，包括头部、主体和常用标签。",
     "imageUrl": "https://images.unsplash.com/photo-1600695268275-1a6468700bd5",
-    "link": "/exercises/html-basics",
+    "link": "/exercises/03-css-01.html",
     "tags": [
       "HTML",
       "基础"
@@ -15,7 +15,7 @@
     "title": "CSS 盒模型与布局",
     "description": "深入理解CSS盒模型，并使用Flexbox和Grid进行响应式页面布局。",
     "imageUrl": "https://ts2.tc.mm.bing.net/th/id/OIP-C.V1iS_0jMw5TDhmSsG6CtzQHaER?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-    "link": "/exercises/css-layout",
+    "link": "/exercises/04-css-02.html",
     "tags": [
       "CSS",
       "Flexbox",
@@ -28,7 +28,7 @@
     "title": "JavaScript DOM 操作",
     "description": "通过JavaScript动态操作DOM元素，实现交互式网页功能。",
     "imageUrl": "https://ts1.tc.mm.bing.net/th/id/OIP-C.9YHDptJeLe99JLdorFgNEQHaEh?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-    "link": "/exercises/js-dom",
+    "link": "/exercises/06-css-02.html",
     "tags": [
       "JavaScript",
       "DOM",
@@ -40,6 +40,7 @@
     "title": "React 组件化开发",
     "description": "学习使用React构建可复用的UI组件，理解状态和属性。",
     "imageUrl": "https://ts4.tc.mm.bing.net/th/id/OIP-C.iS5CmRNYThwTBde2s3Re7gAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "link": "/exercises/07-news-02.html",
     "tags": [
       "React",
       "组件",
@@ -51,6 +52,7 @@
     "title": "Next.js 核心概念",
     "description": "掌握 Next.js 框架中最关键的开发思想与结构设计。",
     "imageUrl": "https://pic4.zhimg.com/v2-628c9f3dc5f542da04c9fdb4ffc75347_r.jpg",
+    "link": "/exercises/season.html",
     "tags": [
       "组件",
       "jsx",

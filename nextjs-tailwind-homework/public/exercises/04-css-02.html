@@ -6,7 +6,28 @@
     <title>CSS 核心概念</title>
     <style>
       body {
-        background-color: #d4c7c7;
+        background: #f0f4f8;
+      }
+      h1 {
+        color: #2d3748;
+        border-bottom: 2px solid #cbd5e0;
+      }
+      .box {
+        border: 1px solid #cbd5e0;
+        background: #ffffff;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .flex-container p {
+        border-color: #a0aec0;
+        background: #f7fafc;
+      }
+      .animate-box {
+        background: #4a5568;
+        color: white;
+      }
+      .animate-box:hover {
+        background: #667eea;
+        color: #ebf4ff;
       }
     </style>
   </head>
@@ -86,13 +107,39 @@
       </div>
     </section>
     <section>
+      <h2>flex局部</h2>
+      <div class="vertical-flex">
+        <p>1的点点滴滴的点点滴滴</p>
+        <p>2的点点滴滴的点点滴滴</p>
+        <p>3的点点滴滴的点点滴滴</p>
+      </div>
+      <style>
+        .vertical-flex {
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+        }
+        .vertical-flex p {
+          background: #f7fafc;
+          border: 1px solid #cbd5e0;
+          padding: 12px;
+          border-radius: 6px;
+          transition: all 0.3s;
+        }
+        .vertical-flex p:hover {
+          background: #ebf8ff;
+          transform: translateX(4px);
+        }
+      </style>
+    </section>
+    <section>
       <h5>动画</h5>
       动画必须要有起始状态、结束状态、时长
       <style>
         .animate-box {
           width: 120px;
           height: 120px;
-          background-color: rgb(12, 0, 248);
+          background-color: rgb(180, 232, 246);
           text-align: center;
           line-height: 115px;
           margin-top: 1em;

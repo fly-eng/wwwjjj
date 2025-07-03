@@ -8,10 +8,7 @@ export default function GitHubStatsLayout({ children }) {
       <Navbar />
       <main className="flex-grow">{children}</main>
     </div>
-    <div className="min-h-screen flex flex-col">
-      {/* 这里保持与现有项目一致的导航栏组件 */}
-      {children}
-    </div>
+
 </>
   );
 }

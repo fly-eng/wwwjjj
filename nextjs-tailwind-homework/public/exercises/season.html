@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>四季之美</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            spring: '#8BC34A',
+            summer: '#FF9800',
+            autumn: '#FF5722',
+            winter: '#2196F3',
+          },
+        },
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50">
+  <!-- 导航栏 -->
+  <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <nav class="container mx-auto px-4 py-3 flex justify-between items-center relative">
+      <div class="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg transition-all duration-300 origin-top scale-y-0" id="mobile-menu">
+        <div class="flex flex-col p-4 space-y-4">
+          <a href="#spring" class="text-gray-600 hover:text-spring">春</a>
+          <a href="#summer" class="text-gray-600 hover:text-summer transition-colors">夏</a>
+          <a href="#autumn" class="text-gray-600 hover:text-autumn transition-colors">秋</a>
+          <a href="#winter" class="text-gray-600 hover:text-winter transition-colors">冬</a>
+        </div>
+      </div>
+      <h1 class="text-xl font-bold text-gray-800">四季之美</h1>
+      <div class="hidden md:flex space-x-6">
+        <a href="#spring" class="text-gray-600 hover:text-spring transition-colors">春</a>
+        <a href="#summer" class="text-gray-600 hover:text-summer transition-colors">夏</a>
+        <a href="#autumn" class="text-gray-600 hover:text-autumn transition-colors">秋</a>
+        <a href="#winter" class="text-gray-600 hover:text-winter transition-colors">冬</a>
+      </div>
+      <button class="md:hidden text-gray-600" id="menu-toggle">
+        <i class="fa fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="container mx-auto px-4 pt-24 pb-16">
+    <h2 class="text-3xl font-bold text-center mb-12">四季轮换</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- 春季卡片 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1" id="spring">
+        <a href="/spring-detail" class="block h-full">
+          <img 
+            src="https://bpic.588ku.com/back_origin_min_pic/19/04/17/4e136445be71d6d42342c049b24e7ea4.jpg!/fw/750/quality/99/unsharp/true/compress/true" 
+            alt="春季"
+            loading="lazy"
+            class="w-full h-48 object-cover bg-gray-200 animate-pulse"
+            onload="this.classList.remove('animate-pulse')">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2">春之韵</h3>
+            <p class="text-gray-600">春暖花开时节，万物复苏的景象</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- 夏季卡片 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1" id="summer">
+        <a href="/summer-detail" class="block h-full">
+          <img src="https://bpic.588ku.com/video_listen/588ku_pic/23/07/04/3b819683e5956c2718e2d121fdc4ab9b.jpg" alt="夏季" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2">夏之恋</h3>
+            <p class="text-gray-600">阳光沙滩与清凉海风的完美结合</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- 秋季卡片 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1" id="autumn">
+        <a href="/autumn-detail" class="block h-full">
+          <img src="https://ts1.tc.mm.bing.net/th/id/R-C.a3c182b0ef038c3c7131ac0a64370d22?rik=vsYhfnyEguWPHg&riu=http%3a%2f%2fwww.88vj.com%2fupfiles%2fvideoimg%2f20210815%2fb854db4e7f8300e363c4ef10540b2548_7.jpg&ehk=m9Q2B%2fqY7vvKf%2bXGHeCUL9Pdj5kPxg%2bJGqryGig4aGY%3d&risl=&pid=ImgRaw&r=0" alt="秋季" class="w-full h-48 object-cover rounded-xl">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2">秋之韵</h3>
+            <p class="text-gray-600">金秋红叶与丰收景象的完美呈现</p>
+          </div>
+        </a>
+      </div>
+      
+      <!-- 冬季卡片 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden transform transition-all duration-300 hover:shadow-lg hover:-translate-y-1" id="winter">
+        <a href="/winter-detail" class="block h-full">
+          <img src="https://ts1.tc.mm.bing.net/th/id/R-C.d3e7c5314f0b0d43316fe4598c942cb6?rik=ywdASgnioAj7aA&riu=http%3a%2f%2fn.sinaimg.cn%2fsinacn%2fw1600h1067%2f20180108%2f7625-fyqincv2450795.jpg&ehk=NNOho9qzd3WVttBfK4dRJVu5qtv9NGYokVd%2b5MkSefg%3d&risl=&pid=ImgRaw&r=0" alt="冬季" class="w-full h-48 object-cover rounded-xl">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2">冬之恋</h3>
+            <p class="text-gray-600">银装素裹与温暖壁炉的冬日画卷</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+    <!-- 名言 -->
+    <div class="mt-16 p-6 bg-gray-100 rounded-xl">
+      <blockquote class="text-center text-gray-700 italic">
+        "春有百花秋有月，夏有凉风冬有雪。若无闲事挂心头，便是人间好时节。"
+      </blockquote>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-gray-800 text-white py-6 mt-16">
+    <div class="container mx-auto px-4">
+      <div class="md:flex justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <h3 class="font-bold mb-2">联系我们</h3>
+          <p class="text-sm opacity-90">service@season.com</p>
+        </div>
+        <div class="flex space-x-4 justify-center">
+          <a href="#" class="hover:text-spring transition-colors">
+            <i class="fa fa-weixin text-lg"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        document.querySelector(targetId).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // 移动端菜单
+    const menuToggle = document.getElementById('menu-toggle');
+    menuToggle.addEventListener('click', function() {
+      const nav = document.querySelector('nav div');
+      nav.classList.toggle('hidden');
+      nav.classList.toggle('md:flex');
+    });
+  </script>
+</body>
+</html>
+    

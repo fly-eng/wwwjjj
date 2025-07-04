@@ -142,13 +142,16 @@ export default function Footer() {
 ```
 
 ### WakaTime API集成与展示截图
-![WakaTime API集成与展示截图](.\public\WakaTime API集成与展示截图.png)
+![WakaTime API集成与展示截图](.\public\WakaTimeAPI集成与展示截图.png)
+
+![WakaTime时长截图](.\public\WakaTime时长截图.png)
 
 ## 四、Next.js项目结构
 ```
 ├── nextjs-tailwind-homework/
     ├── public/
     │   ├── exercises/                # 旧作业页面
+    │   │   ├── 02-css-02.html
     │   │   ├── 03-css-01.html
     │   │   ├── 04-css-02.html
     │   │   ├── 05-news-02.html
@@ -226,9 +229,6 @@ export default function Home() {
 
 
 #### 某个具体练习的运行界面
-第二周作业截图
-
-![具体练习运行界面截图](.\public\第二周作业截图.png)
 
 第三周作业截图
 

@@ -31,11 +31,11 @@
 ### QAnything运行截图
 嵌入版截图：
 
-![QAnything运行截图](.\public\QAnything运行截图（嵌入版）.png)
+![QAnything运行截图](./public/QAnything运行截图（嵌入版）.png)
 
 链接网页版截图：
 
-![QAnything运行截图](.\public\QAnything运行截图（链接网页版）.png)
+![QAnything运行截图](./public/QAnything运行截图（链接网页版）.png)
 
 ## 三、WakaTime API集成方法
 
@@ -142,9 +142,9 @@ export default function Footer() {
 ```
 
 ### WakaTime API集成与展示截图
-![WakaTime API集成与展示截图](.\public\WakaTimeAPI集成与展示截图.png)
+![WakaTime API集成与展示截图](./public/WakaTimeAPI集成与展示截图.png)
 
-![WakaTime时长截图](.\public\WakaTime时长截图.png)
+![WakaTime时长截图](./public/WakaTime时长截图.png)
 
 ## 四、Next.js项目结构
 ```
@@ -221,39 +221,39 @@ export default function Home() {
 
 ### Next.js组织课程练习作业的运行截图
 #### 练习导航页
-![练习导航页截图](.\public\练习导航页截图.png)
+![练习导航页截图](./public/练习导航页截图.png)
 
 
 #### github提交作业截图
-![github提交作业截图](.\public\github提交作业截图.png)
+![github提交作业截图](./public/github提交作业截图.png)
 
 
 #### 某个具体练习的运行界面
 
 第三周作业截图
 
-![具体练习运行界面截图](.\public\第三周作业截图.png)
+![具体练习运行界面截图](./public/第三周作业截图.png)
 
 第四周作业截图
 
-![具体练习运行界面截图](.\public\第四周作业截图.png)
+![具体练习运行界面截图](./public/第四周作业截图.png)
 
 
 第五周作业截图
 
-![具体练习运行界面截图](.\public\第五周作业截图.png)
+![具体练习运行界面截图](./public/第五周作业截图.png)
 
 第六周作业截图
 
-![具体练习运行界面截图](.\public\第六周作业截图.png)
+![具体练习运行界面截图](./public/第六周作业截图.png)
 
 第七周作业截图
 
-![具体练习运行界面截图](.\public\第七周作业截图.png)
+![具体练习运行界面截图](./public/第七周作业截图.png)
 
 season截图
 
-![具体练习运行界面截图](.\public\season截图.png)
+![具体练习运行界面截图](./public/season截图.png)
 
 
 ## 六、项目运行指南
